@@ -23,7 +23,11 @@ import SidenavCollapse from "examples/Sidenav/SidenavCollapse";
 // Custom styles for the Sidenav
 import SidenavRoot from "examples/Sidenav/SidenavRoot";
 import sidenavLogoLabel from "examples/Sidenav/styles/sidenav";
+<<<<<<< HEAD
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+=======
+
+>>>>>>> origin/main
 // Material Dashboard 2 React context
 import {
   useMaterialUIController,
@@ -174,7 +178,11 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
           color={sidenavColor}
           fullWidth
         >
+<<<<<<< HEAD
           Contact Support <ArrowForwardIcon />
+=======
+          Contact Support
+>>>>>>> origin/main
         </MDButton>
       </MDBox>
     </SidenavRoot>

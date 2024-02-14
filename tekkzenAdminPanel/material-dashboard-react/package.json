@@ -34,7 +34,7 @@
   },
   
   "scripts": {
-    "start": " react-scripts start", 
+    "start": " react-scripts start --port=5000", 
    
     "build": "GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",

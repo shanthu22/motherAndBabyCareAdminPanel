@@ -28,14 +28,14 @@ function Tables() {
           <Grid item xs={12}>
             <Card>
               <MDBox
-                mx={2}
-                mt={-3}
+                mx={0}
+                mt={0}
                 py={3}
                 px={2}
                 variant="gradient"
-                bgColor="info"
+                bgColor="warning"
                 borderRadius="lg"
-                coloredShadow="info"
+                coloredShadow="warning"
               >
                 <MDTypography variant="h6" color="white">
                   Authors Table

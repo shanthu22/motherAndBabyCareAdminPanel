@@ -1,0 +1,27 @@
+.dropdown-container{
+    background-color: rgb(50, 139, 237);
+    color: white;
+    padding: 10px 24px;   
+    font-family: roboto,helvetica,arial,sans-serif;
+    font-size: 12px;   
+    font-weight: 700;
+   border-radius: 7px;
+   text-align: center;
+  
+    
+}
+
+.dropdown-header{
+    display: flex;
+    justify-content: center;
+}
+
+.dropdown-header-Deafult{
+ margin-right: 10px;  
+ 
+}
+
+
+.dropdown-container:hover{
+  cursor: pointer;
+}

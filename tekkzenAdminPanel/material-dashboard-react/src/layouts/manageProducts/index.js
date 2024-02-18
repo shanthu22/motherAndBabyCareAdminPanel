@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
 import DashboardNavbar from "examples/Navbars/DashboardNavbar";
 
@@ -12,14 +12,40 @@ import MDAlert from "components/MDAlert";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import MDButton from "components/MDButton";
-import TKZNDropownButton from "components/TKZNDropownButton";
-const BathingChanging = () => {
-  const options = ["Create a merge commit", "Squash and merge", "Rebase and merge"];
+// import TKZNDropownButton from "components/TKZNDropownButton";
+import Add from "./components/add/add";
+import Delete from "./components/delete/delete";
+import Update from "./components/update/update";
+const ManageProducts = () => {
+  const optionTypeElements = {
+    Add: (
+      <Grid item xs={12} lg={8}>
+        <Add />
+      </Grid>
+    ),
+    Update: (
+      <Grid item xs={12} lg={8}>
+        <Update />
+      </Grid>
+    ),
+    Delete: (
+      <Grid item xs={12} lg={8}>
+        <Delete />
+      </Grid>
+    ),
+  };
+  const [optionType, setOptionType] = useState(null);
+
+  const handleOptionClick = (e) => {
+    console.log(e.target.textContent);
+    setOptionType(e.target.textContent);
+  };
+  // const options = ["Create a merge commit", "Squash and merge", "Rebase and merge"];
   return (
     <DashboardLayout>
       <DashboardNavbar />
 
-      <Grid item container spacing={3} justifyContent="center">
+      <Grid item container pt={3} pb={3} spacing={3} justifyContent="center">
         <Grid item xs={12}>
           <Card>
             <MDBox p={2} lineHeight={0}>
@@ -31,22 +57,42 @@ const BathingChanging = () => {
             <MDBox p={2}>
               <Grid container spacing={3}>
                 <Grid item xs={12} sm={6} lg={3}>
-                  <MDButton variant="gradient" color="success" fullWidth>
+                  <MDButton
+                    variant="gradient"
+                    color="success"
+                    fullWidth
+                    onClick={(e) => handleOptionClick(e)}
+                  >
                     Reload <ReplayIcon />
                   </MDButton>
                 </Grid>
                 <Grid item xs={12} sm={6} lg={3}>
-                  <MDButton variant="gradient" color="info" fullWidth>
+                  <MDButton
+                    variant="gradient"
+                    color="info"
+                    fullWidth
+                    onClick={(e) => handleOptionClick(e)}
+                  >
                     Add
                   </MDButton>
                 </Grid>
                 <Grid item xs={12} sm={6} lg={3}>
-                  <MDButton variant="gradient" color="warning" fullWidth>
+                  <MDButton
+                    variant="gradient"
+                    color="warning"
+                    fullWidth
+                    onClick={(e) => handleOptionClick(e)}
+                  >
                     Update
                   </MDButton>
                 </Grid>
                 <Grid item xs={12} sm={6} lg={3}>
-                  <MDButton variant="gradient" color="error" fullWidth>
+                  <MDButton
+                    variant="gradient"
+                    color="error"
+                    fullWidth
+                    onClick={(e) => handleOptionClick(e)}
+                  >
                     Delete
                   </MDButton>
                 </Grid>
@@ -54,31 +100,8 @@ const BathingChanging = () => {
             </MDBox>
           </Card>
         </Grid>
-        <Grid item xs={12} lg={8}>
-          <Card>
-            <MDBox p={2}>
-              <TKZNDropownButton />
-            </MDBox>
-          </Card>
-        </Grid>
-        <Grid item xs={12} lg={8}>
-          <Card>
-            <MDBox p={2}>
-              <MDTypography variant="h5">Alerts</MDTypography>
-            </MDBox>
-            <MDBox pt={2} px={2}>
-              <MDAlert color="primary" dismissible></MDAlert>
-              <MDAlert color="secondary" dismissible></MDAlert>
-              <MDAlert color="success" dismissible></MDAlert>
-              <MDAlert color="error" dismissible></MDAlert>
-              <MDAlert color="warning" dismissible></MDAlert>
-              <MDAlert color="info" dismissible></MDAlert>
-              <MDAlert color="light" dismissible></MDAlert>
-              <MDAlert color="dark" dismissible></MDAlert>
-            </MDBox>
-          </Card>
-        </Grid>
 
+        {optionTypeElements[optionType]}
         <Grid item xs={12}>
           <Card>
             <MDBox
@@ -140,4 +163,4 @@ const BathingChanging = () => {
     </DashboardLayout>
   );
 };
-export default BathingChanging;
+export default ManageProducts;

@@ -2,10 +2,12 @@ import * as React from "react";
 import { useState } from "react";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import "./index.css";
-const TKZNDropownButton = () => {
+import { CallEnd } from "@mui/icons-material";
+const TKZNDropownButton = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const options = ["Option 1", "Option 2", "Option 3"];
+
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
@@ -13,6 +15,10 @@ const TKZNDropownButton = () => {
   const handleOptionClick = (option) => {
     setSelectedOption(option);
     setIsOpen(false);
+    //PCallback = props.CallbacHandleChange();
+    console.log(option);
+    console.log(typeof option);
+    // console.log(props);
   };
 
   return (

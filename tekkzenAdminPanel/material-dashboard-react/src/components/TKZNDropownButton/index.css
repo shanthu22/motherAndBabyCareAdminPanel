@@ -1,7 +1,7 @@
 .dropdown-container{
-    background-color: rgb(50, 139, 237);
+    background-color: rgb(0, 33, 141);
     color: white;
-    padding: 10px 24px;   
+    padding: 10px 0px ;   
     font-family: roboto,helvetica,arial,sans-serif;
     font-size: 12px;   
     font-weight: 700;
@@ -17,7 +17,7 @@
 }
 
 .dropdown-header-Deafult{
- margin-right: 10px;  
+ /* margin-right: 10px;   */
  
 }
 

@@ -1,15 +1,28 @@
+/* eslint-disable react/prop-types */
 import TKZNDropownButton from "components/TKZNDropownButton";
 import Card from "@mui/material/Card";
 import MDBox from "components/MDBox";
 import MDButton from "components/MDButton";
 import MDTypography from "components/MDTypography";
 import "./add.css";
-const Add = () => {
-  const HandleChange = (e) => {
-    console.log(typeof e.target);
-    console.log(e.target.name);
-  };
+import { useState } from "react";
 
+const Add = () => {
+  const [addFormData, setAddFormData] = useState({});
+  const HandleChange = (e) => {
+    console.log(e.target.name);
+    console.log(e.target.value);
+    setAddFormData({ ...addFormData, [e.target.name]: e.target.value });
+  };
+  const HandleSubmit = (e) => {
+    e.preventDefault();
+    if (addFormData.productType === undefined) {
+      alert("Please select Product Type");
+      return;
+    }
+
+    console.log(addFormData);
+  };
   return (
     <Card className="add">
       <MDBox p={2}>
@@ -23,7 +36,7 @@ const Add = () => {
               <MDTypography variant="h8">Product Type:</MDTypography>
             </label>
             <div className="aaaaa">
-              <TKZNDropownButton CallbacHandleChange={HandleChange} />
+              <TKZNDropownButton CallbackHandleChange={HandleChange} />
             </div>
           </div>
 
@@ -94,7 +107,7 @@ const Add = () => {
             />
           </div>
         </form>
-        <MDButton variant="gradient" color="info" fullWidth>
+        <MDButton variant="gradient" onClick={(e) => HandleSubmit(e)} color="info" fullWidth>
           ADD
         </MDButton>
       </MDBox>

@@ -1,8 +1,10 @@
+/* eslint-disable react/prop-types */
 import * as React from "react";
 import { useState } from "react";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import "./index.css";
 import { CallEnd } from "@mui/icons-material";
+
 const TKZNDropownButton = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
@@ -15,16 +17,23 @@ const TKZNDropownButton = (props) => {
   const handleOptionClick = (option) => {
     setSelectedOption(option);
     setIsOpen(false);
-    //PCallback = props.CallbacHandleChange();
-    console.log(option);
-    console.log(typeof option);
-    // console.log(props);
+
+    const fakeProps = {
+      target: {
+        name: "productType",
+        value: "option 1",
+      },
+    };
+    props.CallbackHandleChange(fakeProps);
+
+    //console.log(option);
+    //console.log(props);
   };
 
   return (
     <div className="dropdown-container">
       <div className="dropdown-header" onClick={toggleDropdown}>
-        <div className="dropdown-header-Deafult"> {selectedOption || "SELECT PRODUCT TYPE"}</div>
+        <div className="dropdown-header-Deafult">{selectedOption || "SELECT PRODUCT TYPE"}</div>
         <ArrowDropDownIcon />
         <span className={`arrow ${isOpen ? "open" : "dropdown-header"}`}></span>
       </div>

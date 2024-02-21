@@ -38,6 +38,8 @@
 .aaaaa{
     flex:.5;
     /* margin: 10px; */
+    /* padding-left: 10px; */
    margin-right: 10px;
+   margin-left: -10px;
     
 }

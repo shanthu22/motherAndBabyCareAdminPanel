@@ -7,6 +7,7 @@ import { useState } from "react";
 const Update = () => {
   const [addFormData, setAddFormData] = useState({});
   const [fetchData, setFetchData] = useState(false);
+  const [functionType, setfunctionType] = useState("Search");
   const HandleChange = (e) => {
     console.log(e.target.name);
     console.log(e.target.value);
@@ -14,18 +15,25 @@ const Update = () => {
   };
   const HandleSubmit = (e) => {
     e.preventDefault();
-    if (addFormData.productType === undefined) {
-      alert("Please select Product Type");
-      return;
+
+    if (functionType == "Search") {
+      if (addFormData.productType === undefined) {
+        return alert("Please select Product Type");
+      }
+    }
+    if (functionType == "Update") {
+      return setfunctionType("Search");
+      // return alert("Product Updated Successfully");
     }
 
+    setfunctionType("Update");
     console.log(addFormData);
   };
   return (
     <Card className="add">
       <MDBox p={2}>
         <MDTypography className="addHeading" variant="h5">
-          ADD PRODUCT FORM
+          UPDATE PRODUCT FORM
         </MDTypography>
 
         <form className="addForm">
@@ -50,9 +58,10 @@ const Update = () => {
             />
           </div>
           {/* Fetched Data */}
-          {false && (
+          {functionType == "Search" ? (
+            <></>
+          ) : (
             <>
-              {" "}
               <div>
                 <label>
                   <MDTypography variant="h8">Name:</MDTypography>
@@ -121,10 +130,11 @@ const Update = () => {
           )}
         </form>
         <MDButton variant="gradient" onClick={(e) => HandleSubmit(e)} color="warning" fullWidth>
-          UPDATE
+          {functionType}
         </MDButton>
       </MDBox>
     </Card>
   );
+  4;
 };
 export default Update;

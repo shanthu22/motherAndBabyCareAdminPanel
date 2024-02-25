@@ -23,8 +23,8 @@ const routes = [
 
   {
     type: "collapse",
-    name: "Bathing & Changing",
-    key: "Bathing & Changing",
+    name: "Manage Products",
+    key: "Manage Products",
     icon: <Icon fontSize="small">table_view</Icon>,
     route: "/ManageProducts",
     component: <ManageProducts />,

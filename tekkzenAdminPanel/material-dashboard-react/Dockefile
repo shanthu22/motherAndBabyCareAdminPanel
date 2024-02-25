@@ -1,0 +1,36 @@
+# Base image 
+FROM alpine:3.19.1
+
+# Metadata
+LABEL maintainer="Shanthu shanthu67890@gmail.com"
+LABEL description="Dockerfile for building an white-labeled admin panel for managing backend data"
+LABEL version="1.0"
+
+# Update package repositories and upgrade installed packages
+RUN apk update && \
+    apk upgrade
+
+# Install Node.js and npm
+RUN apk add --no-cache nodejs npm
+# Create the parent directory /app
+RUN mkdir -p /app
+# Attempt to create the directory and list its contents
+RUN mkdir /app/adminPanel && ls -al /app
+# Set the work directory inside the container 
+
+WORKDIR /app/adminPanel
+
+
+# Copy package.json and package-lock.json to the work directory 
+COPY ./package.json ./
+
+COPY ./package-lock.json ./
+
+# Install the dependencies 
+RUN npm install
+
+# Copy the rest of the applications 
+COPY . .
+
+# Command to run the React app 
+CMD ["npm", "start"]
